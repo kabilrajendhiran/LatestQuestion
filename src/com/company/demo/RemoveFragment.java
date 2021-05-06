@@ -55,21 +55,41 @@ public class RemoveFragment {
 
     public void findFragment(String[] inputs)
     {
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        ArrayList<String> arrayList1 = new ArrayList<>();
         int n = inputs.length;
         ArrayList<WordCountModel> wordCountModels = findFrequency(inputs);
 
         for (int i=0;i<wordCountModels.size();i++) {
             WordCountModel w = wordCountModels.get(i);
             String result="";
-            while (w.getCount()>=n)
+            while (w.getCount()>=n && i<wordCountModels.size())
             {
+                arrayList.add(i);
+                arrayList1.add(w.getWord());
                 result =result+  w.getWord()+" ";
-                i++;
                 w = wordCountModels.get(i);
+                i++;
             }
-            System.out.print(result);
+           /* System.out.print(result);*/
+
         }
+
+        /*System.out.println(Arrays.toString(arrayList.toArray()));*/
+
+        //check_Continuous
+
+        for (int i = 1; i < arrayList.size(); i++) {
+            if((arrayList.get(i-1)+1)==arrayList.get(i))
+            {
+                System.out.print(arrayList1.get(i)+" ");
+            }
+        }
+
+
+
         System.out.println();
     }
+
 
 }
