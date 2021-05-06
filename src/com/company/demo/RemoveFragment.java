@@ -62,12 +62,10 @@ public class RemoveFragment {
 
         for (int i=0;i<wordCountModels.size();i++) {
             WordCountModel w = wordCountModels.get(i);
-            String result="";
             while (w.getCount()>=n && i<wordCountModels.size())
             {
                 arrayList.add(i);
                 arrayList1.add(w.getWord());
-                result =result+  w.getWord()+" ";
                 w = wordCountModels.get(i);
                 i++;
             }
